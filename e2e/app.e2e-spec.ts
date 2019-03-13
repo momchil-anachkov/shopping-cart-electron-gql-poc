@@ -1,5 +1,5 @@
 import { AngularElectronPage } from './app.po';
-import { browser, element, by } from 'protractor';
+import { browser, element, by } from 'protractor/built';
 
 describe('angular-electron App', () => {
   let page: AngularElectronPage;

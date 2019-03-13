@@ -1,0 +1,19 @@
+<mat-card>
+  <div class="card-title-group">
+    <mat-card-title>{{ item.name }}</mat-card-title>
+    <mat-card-subtitle>{{ item.price }}</mat-card-subtitle>
+  </div>
+  <img mat-card-image [src]="item.image" />
+  <mat-card-content>{{ item.description }}</mat-card-content>
+  <mat-card-actions>
+    <aesc-action-bar align='right'>
+      <ng-template>
+        <button color="accent" type="button" mat-icon-button (click)="addItemToCartClicked($event, item.id)">
+          <mat-icon>
+            add_shopping_cart
+          </mat-icon>
+        </button>
+      </ng-template>
+    </aesc-action-bar>
+  </mat-card-actions>
+</mat-card>

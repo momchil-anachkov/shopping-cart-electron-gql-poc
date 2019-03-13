@@ -1,4 +1,4 @@
-import { browser, element, by } from 'protractor';
+import { browser, element, by } from 'protractor/built';
 
 /* tslint:disable */
 export class AngularElectronPage {

@@ -17,7 +17,7 @@
             "tsConfig": "src/tsconfig.app.json",
             "polyfills": "src/polyfills.ts",
             "assets": [
-              "src/assets",
+              "src/assets/plain",
               "src/favicon.ico",
               "src/favicon.png",
               "src/favicon.icns",
@@ -149,11 +149,11 @@
   "defaultProject": "angular-electron",
   "schematics": {
     "@schematics/angular:component": {
-      "prefix": "app",
+      "prefix": "aesc",
       "styleext": "scss"
     },
     "@schematics/angular:directive": {
-      "prefix": "app"
+      "prefix": "aesc"
     }
   }
 }

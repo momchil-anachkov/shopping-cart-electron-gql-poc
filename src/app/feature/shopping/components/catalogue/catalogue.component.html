@@ -1,0 +1,6 @@
+<p>
+  {{ 'PAGES.CATALOGUE.TITLE' | translate }}
+</p>
+<div class="card-grid">
+  <aesc-catalogue-item *ngFor="let item of (catalogueList$ | async)" [item]="item" (itemAddedToCart)=addItemToCart($event)></aesc-catalogue-item>
+</div>

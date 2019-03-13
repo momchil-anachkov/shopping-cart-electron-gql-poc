@@ -1,4 +1,5 @@
 {
+  "appId": "id.electron-cart.momchil",
   "productName": "angular-electron",
   "directories": {
     "output": "app-builds"
@@ -22,7 +23,7 @@
   "win": {
     "icon": "dist",
     "target": [
-      "portable"
+      "NSIS"
     ]
   },
   "mac": {

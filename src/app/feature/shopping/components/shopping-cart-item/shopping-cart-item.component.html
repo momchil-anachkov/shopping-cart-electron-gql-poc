@@ -1,0 +1,20 @@
+<div class="shopping-cart-entry">
+  <div>
+    <!-- name -->
+    {{ cartEntry.item.name }}
+  </div>
+  <div>
+    <!-- price -->
+    {{ cartEntry.item.price }} x
+    <mat-form-field color="accent">
+      <mat-placeholder>{{ 'GLOBAL.AMOUNT' | translate }}</mat-placeholder>
+      <input #amount type="text" matInput [value]="cartEntry.count" (change)="itemAmountChanged(amount.value)"/>
+    </mat-form-field>
+    <button class="remove" mat-icon-button (click)="itemRemoveClicked($event, cartEntry.item.id)">
+      <mat-icon>
+        clear
+      </mat-icon>
+    </button>
+  </div>
+
+</div>

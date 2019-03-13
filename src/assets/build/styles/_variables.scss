@@ -1,0 +1,21 @@
+//#region media queries
+
+$query-xs: 'screen and (max-width: 599px)';
+$query-sm: 'screen and (min-width: 600px) and (max-width: 959px)';
+$query-md: 'screen and (min-width: 960px) and (max-width: 1279px)';
+$query-lg: 'screen and (min-width: 1280px) and (max-width: 1919px)';
+$query-xl: 'screen and (min-width: 1920px) and (max-width: 5000px)';
+
+
+$query-lt-sm: 'screen and (max-width: 599px)';
+$query-lt-md: 'screen and (max-width: 959px)';
+$query-lt-lg: 'screen and (max-width: 1279px)';
+$query-lt-xl: 'screen and (max-width: 1919px)';
+
+
+$query-gt-xs: 'screen and (min-width: 600px)';
+$query-gt-sm: 'screen and (min-width: 960px)';
+$query-gt-md: 'screen and (min-width: 1280px)';
+$query-gt-lg: 'screen and (min-width: 1920px)';
+
+//#endregion

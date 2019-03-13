@@ -1,0 +1,6 @@
+<!-- <div class="action-bar" [ngClass]="{'left': "> -->
+<div [class]="'action-bar ' + align">
+  <div [class]="align" *ngFor="let child of contentChildren; index as i">
+    <ng-container [ngTemplateOutlet]="child"></ng-container>
+  </div>
+</div>

@@ -1,0 +1,24 @@
+@import '~@angular/material/theming';
+@import 'assets/build/styles/_themes.scss';
+
+$background: map-get($calm-theme, background);
+
+.shopping-cart-entry {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25em 2em;
+}
+
+.shopping-cart-entry:hover {
+  background-color: mat-color($background, hover);
+}
+
+.mat-form-field {
+  width: 60px;
+  text-align: center;
+}
+
+.remove {
+  margin-left: 32px;
+}

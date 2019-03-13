@@ -1,0 +1,41 @@
+{
+  "GLOBAL": {
+    "AMOUNT": "Amount",
+    "DISMISS": "Dismiss"
+  },
+  "NOTIFICATIONS": {
+    "ITEM_ADDED": "\"{{itemName}}\" added to cart",
+    "GO_TO_CART": "Go to cart",
+    "ORDER_PLACED": "Your order has been placed"
+  },
+  "PAGES": {
+      "MAIN": {
+        "APP_TITLE": "Angular Electron Shopping Cart PoC"
+      },
+      "CATALOGUE": {
+        "TITLE": "Catalogue"
+      },
+      "CART": {
+        "TITLE": "Shopping Cart",
+        "PROCEED_TO_CHECKOUT": "Proceed to Checkout",
+        "CONTINUE_SHOPPING": "Continue Shopping"
+      },
+      "CHECKOUT": {
+        "TITLE": "Checkout",
+        "BACK_TO_CART": "Back to cart",
+        "PLACE_ORDER": "Place order",
+        "PLACEHOLDERS": {
+          "FIRST_NAME": "First name",
+          "LAST_NAME": "Last name",
+          "ADDRESS": "Adress",
+          "PHONE_NUMBER": "Phone number",
+          "PAYMENT_METHOD": "Payment method"
+        },
+        "PAYMENT_METHODS": {
+          "PAYPAL": "PayPal",
+          "CARD": "Credit Card",
+          "ON_PICKUP": "On Pickup"
+        }
+      }
+  }
+}

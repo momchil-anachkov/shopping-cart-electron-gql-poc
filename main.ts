@@ -12,18 +12,39 @@ function createWindow() {
   const size = electronScreen.getPrimaryDisplay().workAreaSize;
 
   // Create the browser window.
-  win = new BrowserWindow({
-    x: 0,
-    y: 0,
-    width: size.width,
-    height: size.height
-  });
+  // win = new BrowserWindow({
+  //   x: 0,
+  //   y: 0,
+  //   width: size.width,
+  //   height: size.height
+  // });
 
   if (serve) {
+    win = new BrowserWindow({
+      x: 0,
+      y: 0,
+      width: size.width,
+      height: size.height,
+      webPreferences: {
+        webSecurity: false,
+        // nodeIntegration: false,
+      }
+    });
     require('electron-reload')(__dirname, {
-     electron: require(`${__dirname}/node_modules/electron`)});
+      electron: require(`${__dirname}/node_modules/electron`)
+    });
     win.loadURL('http://localhost:4200');
+    BrowserWindow.addDevToolsExtension(
+      'C:/Users/momchil.anachkov/AppData/Local/Google/Chrome/User Data/Default/Extensions/lmhkpmbekcpmknklioeibfkpmmfibljd/2.15.3_0'
+    );
+    // win.addDevToolsExtension('%LOCALAPPDATA%/Google/Chrome/User Data/Default/Extensions/lmhkpmbekcpmknklioeibfkpmmfibljd/2.15.3_0');
   } else {
+    win = new BrowserWindow({
+      x: 0,
+      y: 0,
+      width: size.width,
+      height: size.height
+    });
     win.loadURL(url.format({
       pathname: path.join(__dirname, 'dist/index.html'),
       protocol: 'file:',
@@ -43,6 +64,13 @@ function createWindow() {
 }
 
 try {
+
+  app.setAppUserModelId('id.test.momchil');
+
+  (<any>app).devSelectorPreloadScriptPath = path.join(
+    __dirname, 'src', 'assets', 'plain', 'scripts', 'element-selector.preload.js'
+  );
+
 
   // This method will be called when Electron has finished
   // initialization and is ready to create browser windows.

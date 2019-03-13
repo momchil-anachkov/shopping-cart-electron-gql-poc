@@ -1,0 +1,16 @@
+.action-bar {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.action-bar.left {
+  justify-content: flex-start;
+}
+
+.left {
+  margin-right: 16px;
+}
+
+.right {
+  margin-left: 16px;
+}

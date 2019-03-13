@@ -1,0 +1,38 @@
+<p>
+  {{ 'PAGES.CHECKOUT.TITLE' | translate }}
+</p>
+
+<div class="navigation-action-bar">
+  <a mat-raised-button class="left" [routerLink]="['../cart']">
+    <mat-icon>chevron_left</mat-icon>{{ 'PAGES.CHECKOUT.BACK_TO_CART' | translate }}</a>
+  <a mat-raised-button color="accent" class="right" [disabled]="checkoutForm.invalid" (click)="placeOrder()">{{ 'PAGES.CHECKOUT.PLACE_ORDER' | translate }}
+    <mat-icon>keyboard_arrow_right</mat-icon>
+  </a>
+</div>
+
+<form [formGroup]="checkoutForm" class="checkout-form-grid">
+  <mat-form-field color="accent">
+    <mat-placeholder>{{ 'PAGES.CHECKOUT.PLACEHOLDERS.FIRST_NAME' | translate }}</mat-placeholder>
+    <input type="text" matInput formControlName="firstName" />
+  </mat-form-field>
+  <mat-form-field color="accent">
+    <mat-placeholder>{{ 'PAGES.CHECKOUT.PLACEHOLDERS.LAST_NAME' | translate }}</mat-placeholder>
+    <input type="text" matInput formControlName="lastName" />
+  </mat-form-field>
+  <mat-form-field color="accent">
+    <mat-placeholder>{{ 'PAGES.CHECKOUT.PLACEHOLDERS.ADDRESS' | translate }}</mat-placeholder>
+    <input type="text" matInput formControlName="address" />
+  </mat-form-field>
+  <mat-form-field color="accent">
+    <mat-placeholder>{{ 'PAGES.CHECKOUT.PLACEHOLDERS.PHONE_NUMBER' | translate }}</mat-placeholder>
+    <input type="text" matInput formControlName="phoneNumber" />
+  </mat-form-field>
+  <mat-form-field color="accent">
+    <mat-placeholder>{{ 'PAGES.CHECKOUT.PLACEHOLDERS.PAYMENT_METHOD' | translate }}</mat-placeholder>
+    <mat-select formControlName="paymentMethod">
+      <mat-option [value]="paymentMethods.PAYPAL">{{ paymentMethods.PAYPAL | paymentMethodsTranslationKey | translate }}</mat-option>
+      <mat-option [value]="paymentMethods.CARD">{{ paymentMethods.CARD | paymentMethodsTranslationKey | translate }}</mat-option>
+      <mat-option [value]="paymentMethods.ON_PICKUP">{{ paymentMethods.ON_PICKUP | paymentMethodsTranslationKey | translate }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+</form>

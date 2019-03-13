@@ -1,0 +1,26 @@
+.mat-card {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.mat-card-content {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.card-title-group {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  align-items: baseline;
+}
+
+.mat-card-title {
+   margin: 0 !important;
+}
+
+.mat-card-subtitle {
+  margin: 0 !important;
+}
