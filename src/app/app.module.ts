@@ -22,8 +22,8 @@ import { SharedModule } from './shared/shared.module';
     BrowserAnimationsModule,
 
     /* Core */
-    CoreModule,
     StateModule.forRoot(),
+    CoreModule,
 
     MainModule,
     SharedModule,

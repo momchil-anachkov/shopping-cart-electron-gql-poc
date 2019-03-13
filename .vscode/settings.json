@@ -1,4 +1,8 @@
 {
+  "editor.tabSize": 2,
   "javascript.preferences.importModuleSpecifier": "relative",
-  "typescript.preferences.importModuleSpecifier": "relative"
+  "typescript.preferences.importModuleSpecifier": "relative",
+
+  "html.format.wrapLineLength": 140,
+  "html.format.wrapAttributes": "force-expand-multiline"
 }

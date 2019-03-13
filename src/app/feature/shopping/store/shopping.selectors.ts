@@ -23,7 +23,7 @@ export const selectShoppingCart = createSelector(
     return Object.values(state.cart)
       .map(shoppingEntry => ({
         item: state.catalogue[shoppingEntry.itemId],
-        count: shoppingEntry.count
+        amount: shoppingEntry.count
       }));
   }
 );
@@ -41,7 +41,7 @@ export const selectShoppingCartTotal = createSelector(
   selectShoppingCart,
   (cart): number => {
     return cart
-      .map(entry => entry.count * entry.item.price)
+      .map(entry => entry.amount * entry.item.price)
       .reduce((entrySum, currentEntry) => entrySum += currentEntry, 0);
   }
 );

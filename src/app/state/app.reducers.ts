@@ -6,10 +6,12 @@ import { AppState } from './app.state';
 import { localStorageSync } from 'ngrx-store-localstorage';
 import { StoreKeyNames } from '../config';
 import { shoppingReducer } from '../feature/shopping/store';
+import { apolloReducer } from 'apollo-angular-cache-ngrx';
 
 export const appReducer: ActionReducerMap<AppState> = {
   router: routerReducer,
   shopping: shoppingReducer,
+  apollo: apolloReducer,
 };
 
 export function logger(reducer: ActionReducer<AppState>): ActionReducer<AppState> {

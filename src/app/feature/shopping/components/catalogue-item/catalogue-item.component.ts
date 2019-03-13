@@ -8,15 +8,16 @@ import { ShoppingItem } from '../../types';
 })
 export class CatalogueItemComponent implements OnInit {
   @Input() item: ShoppingItem;
-  @Output() itemAddedToCart: EventEmitter<string> = new EventEmitter();
+  @Output() itemAddedToCart: EventEmitter<ShoppingItem> = new EventEmitter();
 
   constructor() { }
 
   ngOnInit() {
   }
 
-  addItemToCartClicked = (event, itemId: string) => {
-    this.itemAddedToCart.emit(itemId);
+  addItemToCartClicked = (event, item: ShoppingItem) => {
+    this.itemAddedToCart.emit(item);
   }
 
 }
+

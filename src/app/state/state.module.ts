@@ -10,6 +10,10 @@ import { appReducer, appMetaReducers } from './app.reducers';
 import { CustomSerializer } from './router-serializer';
 import { StoreKeyNames } from '../config';
 import { ShoppingEffects } from '../feature/shopping/store/shopping.effects';
+import {
+  NgrxCacheModule,
+  NgrxCache,
+} from 'apollo-angular-cache-ngrx';
 
 @NgModule({
   imports: [
@@ -23,14 +27,18 @@ import { ShoppingEffects } from '../feature/shopping/store/shopping.effects';
       AppEffects,
       ShoppingEffects,
     ]),
+
     StoreRouterConnectingModule.forRoot({
       stateKey: StoreKeyNames.ROUTER,
     }),
+    NgrxCacheModule,
     AppConfig.production ? [] : StoreDevtoolsModule.instrument()
   ],
 })
 export class StateModule {
   constructor(
+    ngrxCache: NgrxCache,
+
     @Optional()
     @SkipSelf()
     stateModule?: StateModule,
@@ -38,6 +46,7 @@ export class StateModule {
     if (stateModule) {
       throw new Error('StateModule is already loaded. Import it in the AppModule only!');
     }
+    const cache = ngrxCache.create({});
   }
 
   static forRoot(): ModuleWithProviders {

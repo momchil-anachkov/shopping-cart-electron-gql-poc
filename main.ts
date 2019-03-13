@@ -37,7 +37,9 @@ function createWindow() {
     BrowserWindow.addDevToolsExtension(
       'C:/Users/momchil.anachkov/AppData/Local/Google/Chrome/User Data/Default/Extensions/lmhkpmbekcpmknklioeibfkpmmfibljd/2.15.3_0'
     );
-    // win.addDevToolsExtension('%LOCALAPPDATA%/Google/Chrome/User Data/Default/Extensions/lmhkpmbekcpmknklioeibfkpmmfibljd/2.15.3_0');
+    BrowserWindow.addDevToolsExtension(
+      'C:/Users/momchil.anachkov/AppData/Local/Google/Chrome/User Data/Default/Extensions/jdkknkkbebbapilgoeccciglkfbmbnfm/2.1.3_0'
+    );
   } else {
     win = new BrowserWindow({
       x: 0,

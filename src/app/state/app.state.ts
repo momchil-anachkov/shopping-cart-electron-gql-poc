@@ -5,4 +5,5 @@ import { ShoppingState } from '../feature/shopping/store';
 export interface AppState {
   router: RouterReducerState<RouterSliceState>;
   shopping: ShoppingState;
+  apollo: any;
 }

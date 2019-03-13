@@ -48,7 +48,7 @@ const initialShoppingState: ShoppingState =
         id: '6',
         name: 'Shower Gel',
         description: 'Treat your skin right',
-        image: 'http://via.placeholder.com/250x250?text=Shower Gel',
+        image: 'http://via.placeholder.com/250x250?text=Shower+Gel',
         price: 3.99
       },
     },

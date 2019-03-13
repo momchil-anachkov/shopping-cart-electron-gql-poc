@@ -3,19 +3,35 @@
 </p>
 
 <div class="navigation-action-bar">
-  <a mat-raised-button class="left" [routerLink]="['../catalogue']">
-    <mat-icon>chevron_left</mat-icon>{{ 'PAGES.CART.CONTINUE_SHOPPING' | translate }}</a>
-  <a mat-raised-button color="accent" class="right" [routerLink]="['../checkout']">{{ 'PAGES.CART.PROCEED_TO_CHECKOUT' | translate }}
+  <a
+    mat-raised-button
+    class="left"
+    [routerLink]="['../catalogue']"
+  >
+    <mat-icon>chevron_left</mat-icon>
+    <span>{{ 'PAGES.CART.CONTINUE_SHOPPING' | translate }}</span>
+  </a>
+  <a
+    mat-raised-button
+    color="accent"
+    class="right"
+    [routerLink]="['../checkout']"
+  >
+    <span>{{ 'PAGES.CART.PROCEED_TO_CHECKOUT' | translate }}</span>
     <mat-icon>keyboard_arrow_right</mat-icon>
   </a>
 </div>
 
 <ng-container *ngFor="let cartEntry of (shoppingCart$ | async)">
-  <aesc-shopping-cart-item [cartEntry]="cartEntry" (itemRemoved)="itemRemoved($event)" (amountChanged)="amountChanged(cartEntry.item.id, $event)"></aesc-shopping-cart-item>
+  <aesc-shopping-cart-item
+    [cartEntry]="cartEntry"
+    (itemRemoved)="itemRemoved($event)"
+    (amountChanged)="amountChanged(cartEntry.item.id, $event)"
+  ></aesc-shopping-cart-item>
 </ng-container>
 
 <mat-divider class="total-divider"></mat-divider>
 
 <div class="total">
-  <span>Total: {{ shoppingCartTotal$ | async }}</span>
+  <span>Total: {{ shoppingCartTotal$ | async | currency : 'EUR' : 'symbol' : '2.2-2' }}</span>
 </div>

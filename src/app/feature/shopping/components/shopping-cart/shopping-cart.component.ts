@@ -1,29 +1,23 @@
 import { Component, OnInit } from '@angular/core';
-import { AppState } from '../../../../state/app.state';
-import { Store } from '@ngrx/store';
-import { selectShoppingCart, selectShoppingCatalogueCollection, selectShoppingCartTotal } from '../../store';
-import * as ShoppingActions from '../../store/shopping.actions';
+import { RemoveItemFromCartMutation } from '../../../../core/mutations/remove-item-from-cart.mutation';
+import { SetItemAmountMutation } from '../../../../core/mutations/set-item-amount.mutation';
+import { ShoppingCartService } from '../../../../core/providers/shopping-cart.service';
 
 @Component({
   selector: 'aesc-shopping-cart',
   templateUrl: './shopping-cart.component.html',
   styleUrls: ['./shopping-cart.component.scss']
 })
+
 export class ShoppingCartComponent implements OnInit {
-  shoppingCart$ = this.store$.select(
-    selectShoppingCart
-  );
 
-  shoppingCartTotal$ = this.store$.select(
-    selectShoppingCartTotal
-  );
-
-  shoppingCatalogueCollection$ = this.store$.select(
-    selectShoppingCatalogueCollection,
-  );
+  public shoppingCart$ = this.shoppingCartService.shoppingCart$;
+  public shoppingCartTotal$ = this.shoppingCartService.shoppingCartTotal$;
 
   constructor(
-    private store$: Store<AppState>,
+    private removeItemFromCartMutation: RemoveItemFromCartMutation,
+    private setItemAmountMutation: SetItemAmountMutation,
+    private shoppingCartService: ShoppingCartService,
   ) {
   }
 
@@ -31,16 +25,16 @@ export class ShoppingCartComponent implements OnInit {
   }
 
   itemRemoved(itemId: string) {
-    this.store$.dispatch(new ShoppingActions.RemoveItem(itemId));
+    this.removeItemFromCartMutation.mutate({
+      itemId: itemId,
+    }).subscribe(result => console.log(result));
   }
 
   amountChanged(itemId: string, amount: number) {
-    this.store$.dispatch(new ShoppingActions.SetItemAmount({
+    this.setItemAmountMutation.mutate({
       itemId: itemId,
-      amount: amount,
-    }));
-    // console.log(typeof itemId, itemId);
-    // console.log(typeof amount, amount);
+      itemAmount: amount,
+    }).subscribe();
   }
 
 }

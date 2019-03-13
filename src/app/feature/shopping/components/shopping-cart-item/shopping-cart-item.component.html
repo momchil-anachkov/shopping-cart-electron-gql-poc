@@ -8,7 +8,7 @@
     {{ cartEntry.item.price }} x
     <mat-form-field color="accent">
       <mat-placeholder>{{ 'GLOBAL.AMOUNT' | translate }}</mat-placeholder>
-      <input #amount type="text" matInput [value]="cartEntry.count" (change)="itemAmountChanged(amount.value)"/>
+      <input #amount type="text" matInput [value]="cartEntry.amount" (change)="itemAmountChanged(amount.value)"/>
     </mat-form-field>
     <button class="remove" mat-icon-button (click)="itemRemoveClicked($event, cartEntry.item.id)">
       <mat-icon>

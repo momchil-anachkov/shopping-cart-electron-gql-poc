@@ -3,29 +3,59 @@
 </p>
 
 <div class="navigation-action-bar">
-  <a mat-raised-button class="left" [routerLink]="['../cart']">
-    <mat-icon>chevron_left</mat-icon>{{ 'PAGES.CHECKOUT.BACK_TO_CART' | translate }}</a>
-  <a mat-raised-button color="accent" class="right" [disabled]="checkoutForm.invalid" (click)="placeOrder()">{{ 'PAGES.CHECKOUT.PLACE_ORDER' | translate }}
+  <a
+    mat-raised-button
+    class="left"
+    [routerLink]="['../cart']"
+  >
+    <mat-icon>chevron_left</mat-icon>{{ 'PAGES.CHECKOUT.BACK_TO_CART' | translate }}
+  </a>
+  <a
+    mat-raised-button
+    color="accent"
+    class="right"
+    [disabled]="checkoutForm.invalid"
+    (click)="placeOrder()"
+  >{{ 'PAGES.CHECKOUT.PLACE_ORDER' | translate }}
     <mat-icon>keyboard_arrow_right</mat-icon>
   </a>
 </div>
 
-<form [formGroup]="checkoutForm" class="checkout-form-grid">
+<form
+  [formGroup]="checkoutForm"
+  class="checkout-form-grid"
+>
   <mat-form-field color="accent">
     <mat-placeholder>{{ 'PAGES.CHECKOUT.PLACEHOLDERS.FIRST_NAME' | translate }}</mat-placeholder>
-    <input type="text" matInput formControlName="firstName" />
+    <input
+      type="text"
+      matInput
+      formControlName="firstName"
+    />
   </mat-form-field>
   <mat-form-field color="accent">
     <mat-placeholder>{{ 'PAGES.CHECKOUT.PLACEHOLDERS.LAST_NAME' | translate }}</mat-placeholder>
-    <input type="text" matInput formControlName="lastName" />
+    <input
+      type="text"
+      matInput
+      formControlName="lastName"
+    />
   </mat-form-field>
   <mat-form-field color="accent">
     <mat-placeholder>{{ 'PAGES.CHECKOUT.PLACEHOLDERS.ADDRESS' | translate }}</mat-placeholder>
-    <input type="text" matInput formControlName="address" />
+    <input
+      type="text"
+      matInput
+      formControlName="address"
+    />
   </mat-form-field>
   <mat-form-field color="accent">
     <mat-placeholder>{{ 'PAGES.CHECKOUT.PLACEHOLDERS.PHONE_NUMBER' | translate }}</mat-placeholder>
-    <input type="text" matInput formControlName="phoneNumber" />
+    <input
+      type="text"
+      matInput
+      formControlName="phoneNumber"
+    />
   </mat-form-field>
   <mat-form-field color="accent">
     <mat-placeholder>{{ 'PAGES.CHECKOUT.PLACEHOLDERS.PAYMENT_METHOD' | translate }}</mat-placeholder>

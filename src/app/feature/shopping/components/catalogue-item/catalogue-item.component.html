@@ -6,9 +6,9 @@
   <img mat-card-image [src]="item.image" />
   <mat-card-content>{{ item.description }}</mat-card-content>
   <mat-card-actions>
-    <aesc-action-bar align='right'>
+    <aesc-action-bar horizontalAlign="right">
       <ng-template>
-        <button color="accent" type="button" mat-icon-button (click)="addItemToCartClicked($event, item.id)">
+        <button color="accent" type="button" mat-icon-button (click)="addItemToCartClicked($event, item)">
           <mat-icon>
             add_shopping_cart
           </mat-icon>

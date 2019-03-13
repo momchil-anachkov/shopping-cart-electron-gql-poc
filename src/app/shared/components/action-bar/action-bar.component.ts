@@ -16,14 +16,14 @@ import {
 })
 export class ActionBarComponent implements OnChanges, OnInit, AfterContentInit {
   @ContentChildren(TemplateRef) contentChildren: QueryList<TemplateRef<any>>;
-  @Input() align: 'left' | 'right';
+  @Input() horizontalAlign: 'left' | 'right';
 
   constructor(
   ) {
   }
 
   ngOnChanges() {
-    this.align = this.align || 'right';
+    this.horizontalAlign = this.horizontalAlign || 'right';
   }
 
   ngOnInit() {

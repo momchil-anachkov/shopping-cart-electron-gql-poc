@@ -1,11 +1,10 @@
 import { Component } from '@angular/core';
-import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
-import { Router } from '@angular/router';
+import { map, shareReplay } from 'rxjs/operators';
 import { Store } from '@ngrx/store';
 import { AppState } from '../../state/app.state';
-import { selectShoppingCartItemCount } from '../../feature/shopping/store';
+import { ShoppingCartQuery } from '../../core/queries/shopping-cart.query';
 
 @Component({
   selector: 'aesc-main-component',
@@ -19,13 +18,24 @@ export class MainComponent {
       map(result => result.matches)
     );
 
-  shoppingCartItemCount$: Observable<number> = this.store$.select(
-    selectShoppingCartItemCount
-  );
+  shoppingCartItemCount$: Observable<number> =
+    this.shoppingCartQuery
+      .watch()
+      .valueChanges
+      .pipe(
+        map(result => {
+          return result
+            .data
+            .shoppingCart
+            .items
+            .reduce((totalAmount, shoppingCartItem) => totalAmount + shoppingCartItem.amount, 0);
+        }),
+        shareReplay(),
+      );
 
   constructor(
     private breakpointObserver: BreakpointObserver,
-    private store$: Store<AppState>,
+    private shoppingCartQuery: ShoppingCartQuery,
   ) { }
 
   buttonClicked(event) {

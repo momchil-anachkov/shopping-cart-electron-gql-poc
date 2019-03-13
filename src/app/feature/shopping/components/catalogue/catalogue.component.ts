@@ -1,8 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { AppState } from '../../../../state/app.state';
 import { Store } from '@ngrx/store';
-import { selectShoppingCatalogueCollection, selectShoppingCatalogueList } from '../../store';
-import * as ShoppingActions from '../../store/shopping.actions';
+import { Apollo } from 'apollo-angular';
+import { map } from 'rxjs/operators';
+import { CatalogueQuery } from '../../../../core/queries/catalogue.query';
+import { AddItemToCartMutation } from '../../../../core/mutations/add-item-to-cart.mutation';
+import { CatalogueService } from '../../../../core/providers/catalogue.service';
+import { of } from 'rxjs';
+import { ShoppingItem } from '../../types';
+import { NotificationService } from '../../../../core/providers/notification.service';
+import { ShoppingCartService } from '../../../../core/providers/shopping-cart.service';
 
 @Component({
   selector: 'aesc-catalogue',
@@ -10,23 +17,25 @@ import * as ShoppingActions from '../../store/shopping.actions';
   styleUrls: ['./catalogue.component.scss']
 })
 export class CatalogueComponent implements OnInit {
-  public catalogueCollection$ = this.store$.select(
-    selectShoppingCatalogueCollection,
-  );
 
-  public catalogueList$ = this.store$.select(
-    selectShoppingCatalogueList,
-  );
+  public catalogueList$ = this.catalogueService.catalogueList$;
 
   constructor(
     private store$: Store<AppState>,
+    private apollo: Apollo,
+    private catalogueService: CatalogueService,
+    private shoppingCartService: ShoppingCartService,
+    private notificationService: NotificationService,
+    private addItemToCartMutation: AddItemToCartMutation,
   ) { }
 
   ngOnInit() {
   }
 
-  addItemToCart(itemId: string) {
-    this.store$.dispatch(new ShoppingActions.AddItem(itemId));
+  addItemToCart(item: ShoppingItem) {
+    this.addItemToCartMutation.mutate({
+      itemId: item.id
+    }).subscribe(() => this.notificationService.itemAddedToCart(item.name));
   }
 
 }
